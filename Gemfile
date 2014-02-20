@@ -1,13 +1,15 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
-gem 'rake'
+gem 'rails', '4.0.3'
+gem 'protected_attributes'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'mysql2'
 gem 'addressable'
 gem 'devise'
+gem 'devise-encryptable'
 gem 'whenever'
 gem 'capistrano'
-gem 'active_scaffold'
+gem 'active_scaffold', github: 'activescaffold/active_scaffold'
 gem 'haml'
 gem 'jquery-rails'
 gem 'sass-rails'
@@ -17,16 +19,15 @@ gem 'recaptcha',
   :require => 'recaptcha/rails'
 
 gem 'exception_notification',
-  :git => "git@github.com:rails/exception_notification.git",
   :require => 'exception_notifier'
 
 gem 'transitions',
   :require => ["transitions", "active_record/transitions"]
 
-gem 'will_paginate', '~> 3.0.pre2'
+gem 'will_paginate'
 
 # OTP toolbox
-gem 'rotp', '~> 1.3.0'
+gem 'rotp'
 
 # QR Code generation
 gem 'qrencoder'
@@ -41,13 +42,10 @@ gem 'blueprint-rails'
 gem 'bourbon'
 
 # File attachment with database storage support
-gem 'paperclip', 
-  :git => 'https://github.com/patshaughnessy/paperclip.git'
+gem 'paperclip'
 
 # Apple push notifications
-gem 'apn_on_rails',
-  :git => 'https://github.com/natescherer/apn_on_rails.git',
-  :branch => 'rails3'
+#gem 'apn_on_rails'
 
 group :test do
   gem 'mocha', :require => false

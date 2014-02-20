@@ -22,6 +22,8 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   config.authentication_keys = [ :name ]
 
+  config.secret_key = '6ca5b37de14ee4dde1cf8a986649fc070f885feec13a7ce6bdd3e4d56b21f2bf6086e93e1de32cf06c3a75372bab4efa967e095ecd687d842c9985cb21dec2ae'
+
   # Tell if authentication through request.params is enabled. True by default.
   # config.params_authenticatable = true
 
@@ -55,14 +57,14 @@ Devise.setup do |config|
   # You can use this to let your user access some features of your application 
   # without confirming the account, but blocking it after a certain period 
   # (ie 2 days). 
-  config.confirm_within = 0
+  #config.allow_unconfirmed_access_for = 0
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.days
 
   # If true, a valid remember token can be re-used between multiple browsers.
-  config.remember_across_browsers = true
+  #config.remember_across_browsers = true
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
@@ -72,7 +74,7 @@ Devise.setup do |config|
   config.password_length = 6..100
 
   # Regex to use to validate the email address
-  config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
+  #config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this

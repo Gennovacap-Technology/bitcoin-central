@@ -30,7 +30,7 @@ BitcoinBank::Application.routes.draw do
     match '/balance/:currency',
       :action => 'balance',
       :as => 'balance',
-      :only => :get
+      via: [:get]
       
     get :deposit
     get :pecunix_deposit_form
@@ -47,10 +47,10 @@ BitcoinBank::Application.routes.draw do
     end
   end
 
-  match "/s/:name" => "static_pages#show", :as => :static
+  match "/s/:name" => "static_pages#show", :as => :static, via: [:get]
   
   match '/third_party_callbacks/:action',
-    :controller => :third_party_callbacks
+    :controller => :third_party_callbacks, via: [:get]
 
   namespace :admin do
     %w{ announcements yubikeys static_pages currencies tickets comments }.each { |r| resources(r.to_sym) {as_routes} }
@@ -75,20 +75,20 @@ BitcoinBank::Application.routes.draw do
       end
     end
     
-    match '/balances', :to => 'informations#balances', :as => :balances
+    match '/balances', :to => 'informations#balances', :as => :balances, via: [:get]
   end
   
-  match '/qrcode/:data.png' => 'qrcodes#show', :as => :qrcode
+  match '/qrcode/:data.png' => 'qrcodes#show', :as => :qrcode, via: [:get]
   
-  match '/order_book' => 'trade_orders#book'
+  match '/order_book' => 'trade_orders#book', via: [:get]
 
-  match '/trades' => 'trades#all_trades'
+  match '/trades' => 'trades#all_trades', via: [:get]
 
-  match '/ticker' => 'trades#ticker'
+  match '/ticker' => 'trades#ticker', via: [:get]
 
-  match '/economy' => 'informations#economy', :as => :economy
+  match '/economy' => 'informations#economy', :as => :economy, via: [:get]
 
-  match '/support' => 'informations#support', :as => :support
+  match '/support' => 'informations#support', :as => :support, via: [:get]
 
   root :to => 'informations#welcome'
 end
